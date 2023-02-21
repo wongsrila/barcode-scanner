@@ -101,7 +101,6 @@ footer nav ul li {
 }
 
 footer ul li:nth-child(2) > a {
-  /* display: block; */
   width: 5rem;
   aspect-ratio: 1/1;
   background-color: var(--color-green);
