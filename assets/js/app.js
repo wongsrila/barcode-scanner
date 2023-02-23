@@ -1,6 +1,9 @@
-import {
-  qrCodeSuccessCallback,
-  decodedData,
-} from './modules/barcodeScanner.js';
+import routie from './modules/routes.js';
+import { gotData } from './modules/barcodeScanner.js';
 
-// decodedData();
+const app = async () => {
+  routie();
+  // console.log(myFunction('First'));
+};
+
+document.addEventListener('DOMContentLoaded', app);
