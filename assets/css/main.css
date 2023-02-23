@@ -15,6 +15,10 @@ main {
   display: none;
 }
 
+#reader {
+  height: 250px;
+}
+
 /* HEADER STYLES */
 header {
   background-color: var(--color-green);
