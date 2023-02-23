@@ -11,6 +11,10 @@ body {
   color: var(--color-dark-grey);
 }
 
+main {
+  display: none;
+}
+
 /* HEADER STYLES */
 header {
   background-color: var(--color-green);

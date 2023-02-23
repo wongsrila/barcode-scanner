@@ -1,18 +1,21 @@
 const stopScanner = document.getElementById('stop');
+const startScanner = document.getElementById('start');
 const result = document.getElementById('result');
 
 const html5QrCode = new Html5Qrcode('reader');
 
 const config = { fps: 20, qrbox: { width: 200, height: 200 } };
 
-html5QrCode
-  .start({ facingMode: 'environment' }, config, (decodedData) => {
-    gotData(decodedData);
-    // console.log(decodedData);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+startScanner.addEventListener('click', () => {
+  html5QrCode
+    .start({ facingMode: 'environment' }, config, (decodedData) => {
+      gotData(decodedData);
+      // console.log(decodedData);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 stopScanner.addEventListener('click', () => {
   html5QrCode
@@ -31,7 +34,6 @@ function gotData(decodedData) {
 }
 
 function dataInfo(decodedData) {
-  // console.log(decodedData.product.product_name);
   result.innerHTML = decodedData.product.product_name;
 }
 
