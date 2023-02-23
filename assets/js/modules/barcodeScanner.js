@@ -34,7 +34,11 @@ function gotData(decodedData) {
 }
 
 function dataInfo(decodedData) {
-  result.innerHTML = decodedData.product.product_name;
+  if (decodedData.status === 1) {
+    result.innerHTML = decodedData.product.product_name;
+  } else {
+    result.innerHTML = 'het bestaat helaas nog niet';
+  }
 }
 
 export { gotData };
