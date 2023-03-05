@@ -26,12 +26,7 @@ const scannerGet = () => {
 
   const markupData = (decodedData) => {
     localStorage.setItem(dataItemIndex, decodedData);
-
     routie('results');
-    const resultMarkup = document.querySelector('#result');
-    const markup = `<p>${decodedData}</p>`;
-
-    resultMarkup.innerHTML = markup;
   };
 };
 
