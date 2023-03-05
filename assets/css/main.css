@@ -123,3 +123,18 @@ footer ul li:nth-child(2) > a > img {
   width: 2.5rem;
 }
 /* FOOTER STYLES */
+
+table {
+  width: 100%;
+  margin-bottom: 40rem;
+}
+
+tr {
+  border: 1px solid gray;
+}
+
+th,
+td {
+  text-align: left;
+  border: 1px solid gray;
+}

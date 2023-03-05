@@ -3,7 +3,7 @@ import resultsGet from '../controllers/resultsController.js';
 import scannerGet from '../controllers/scannerController.js';
 
 routie({
-  home: () => {
+  '': () => {
     indexGet();
   },
   scanner: () => {

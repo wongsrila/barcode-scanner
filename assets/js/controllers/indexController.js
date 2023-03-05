@@ -39,18 +39,11 @@ const indexGet = () => {
       </div>
     </header>
 
-    <main>
-      <div id="reader"></div>
-      <div id="result">Result goes here</div>
-      <button id="start">start scanner</button>
-      <button id="stop">stop scanner</button>
-    </main>
-
     <footer>
       <div class="container">
         <nav>
           <ul>
-            <li>Home</li>
+            <li><a href="/">Home</a></li>
             <li>
               <a href="#scanner">
                 <img src="assets/images/barcode_icon.png" alt="" />
