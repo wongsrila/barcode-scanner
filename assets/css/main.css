@@ -11,13 +11,13 @@ body {
   color: var(--color-dark-grey);
 }
 
-main {
+/* main {
   display: none;
-}
+} */
 
-#reader {
-  height: 250px;
-}
+/* #reader {
+  height: 400px;
+} */
 
 /* HEADER STYLES */
 header {

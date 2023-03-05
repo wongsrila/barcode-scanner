@@ -4,77 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/routie/0.3.2/routie.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js"
-      type="text/javascript"
-      defer
-    ></script>
-    <script src="assets/js/app.js" type="module" defer></script>
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/global_styles.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <title>Yummie Spot | Barcode Scanner</title>
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/global_styles.css" />
+    <title>Document</title>
   </head>
-  <body>
-    <header>
-      <div class="container">
-        <div class="global-padding">
-          <h1>Nutritional today</h1>
-          <ul>
-            <li>
-              <div class="nutrition-info__wrapper">
-                <p>Calories</p>
-                <p>1250 of 2000cal</p>
-              </div>
-              <div class="progress-line__wrapper">
-                <div class="inner-line"></div>
-              </div>
-            </li>
-            <li>
-              <div class="nutrition-info__wrapper">
-                <p>Protein</p>
-                <p>50 of 140g</p>
-              </div>
-              <div class="progress-line__wrapper">
-                <div class="inner-line"></div>
-              </div>
-            </li>
-            <li>
-              <div class="nutrition-info__wrapper">
-                <p>carbs</p>
-                <p>40 of 200g</p>
-              </div>
-              <div class="progress-line__wrapper">
-                <div class="inner-line"></div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <div id="reader"></div>
-      <div id="result">Result goes here</div>
-      <button id="start">start scanner</button>
-      <button id="stop">stop scanner</button>
-    </main>
-
-    <footer>
-      <div class="container">
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>
-              <a href="#scanner">
-                <img src="assets/images/barcode_icon.png" alt="" />
-              </a>
-            </li>
-            <li>Settings</li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
+  <body class="app">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/routie/0.3.2/routie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>
