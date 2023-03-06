@@ -16,7 +16,6 @@ const scannerGet = () => {
   const config = {
     fps: 10,
     qrbox: 200,
-    aspectRatio: 0.4625,
   };
 
   html5QrCode
