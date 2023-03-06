@@ -19,7 +19,7 @@ const resultsGet = async (barcode) => {
       const resultMarkup = `
     <main>
       <img src="${res.product.image_small_url}">
-      <h1>${res.product.generic_name}</h1>
+      <h1>${res.product.product_name}</h1>
       <b>${res.product.brands}</b></br></br>
       <b>${res.product.quantity}</b></br></br>
       <p>${res.product.ingredients_text}</p></br></br>
@@ -79,10 +79,8 @@ const resultsGet = async (barcode) => {
       if (storageItems.some((item) => item.barcode === `${barcode}`)) {
         saveBtn.setAttribute('disabled', '');
       } else {
-        console.log('Object not found.');
         saveBtn.addEventListener('click', () => {
           saveItem(res);
-          console.log('clickevent');
         });
       }
     } else {
@@ -116,7 +114,7 @@ const resultsGet = async (barcode) => {
       items.push({
         barcode: res.code,
         imgUrl: res.product.image_small_url,
-        name: res.product.generic_name,
+        name: res.product.product_name,
         brands: res.product.brands,
         quantity: res.product.quantity,
         ingredients: res.product.ingredients_text,
