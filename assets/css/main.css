@@ -11,6 +11,12 @@ body {
   color: var(--color-dark-grey);
 }
 
+li,
+a {
+  color: var(--color-dark-grey);
+  text-decoration: none;
+}
+
 /* main {
   display: none;
 } */
