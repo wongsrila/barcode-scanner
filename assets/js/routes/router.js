@@ -9,8 +9,8 @@ routie({
   scanner: () => {
     scannerGet();
   },
-  results: () => {
-    resultsGet();
+  'results/:barcode': (barcode) => {
+    resultsGet(barcode);
   },
 });
 

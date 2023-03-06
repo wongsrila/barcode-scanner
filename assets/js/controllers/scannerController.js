@@ -1,10 +1,6 @@
 const app = document.querySelector('.app');
 
 const scannerGet = () => {
-  // makes the index for the localstorage key
-  let dataLength = Object.keys(localStorage).length;
-  let dataItemIndex = dataLength + 1;
-
   const markup = `
     <main>
       <div id="reader"></div>
@@ -21,15 +17,22 @@ const scannerGet = () => {
   html5QrCode
     .start({ facingMode: 'environment' }, config, (decodedData) => {
       markupData(decodedData);
-      // console.log(typeof decodedData);
     })
     .catch((err) => {
       console.log(err);
     });
 
+  html5QrCode
+    .stop()
+    .then((ignore) => {
+      // QR Code scanning is stopped.
+    })
+    .catch((err) => {
+      // Stop failed, handle it.
+    });
+
   const markupData = (decodedData) => {
-    localStorage.setItem(dataItemIndex, decodedData);
-    routie('results');
+    routie(`results/${decodedData}`);
   };
 };
 

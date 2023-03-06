@@ -1,23 +1,13 @@
 const app = document.querySelector('.app');
 
-const resultsGet = async () => {
-  let dataKeys = [];
-  let lastElement;
-
-  for (let key in Object.keys(localStorage)) {
-    dataKeys.push(+key + 1);
-    lastElement = dataKeys[dataKeys.length - 1];
-  }
-
-  const data = localStorage.getItem(lastElement);
-
+const resultsGet = async (barcode) => {
   const markup = `
     <h1>loading</h1>
   `;
 
   app.innerHTML = markup;
 
-  fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
+  fetch(`https://world.openfoodfacts.org/api/v0/product/${barcode}.json`)
     .then((res) => res.json())
     .then((res) => markupData(res));
 
