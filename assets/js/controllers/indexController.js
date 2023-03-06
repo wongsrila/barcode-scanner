@@ -43,7 +43,7 @@ const indexGet = () => {
       <div class="container">
         <nav>
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="./">Home</a></li>
             <li>
               <a href="#scanner">
                 <img src="assets/images/barcode_icon.png" alt="" />
