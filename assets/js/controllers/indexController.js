@@ -39,6 +39,9 @@ const indexGet = () => {
       </div>
     </header>
 
+    <table>
+    </table>
+
     <footer>
       <div class="container">
         <nav>
@@ -57,6 +60,27 @@ const indexGet = () => {
   `;
 
   app.innerHTML = markup;
+
+  // add items to a table that are saved in the localstorage
+  const table = document.querySelector('table');
+
+  const items = JSON.parse(localStorage.getItem('items')) || [];
+
+  items.forEach((item) => {
+    let row = table.insertRow(0);
+    let col1 = row.insertCell(0);
+    let col2 = row.insertCell(1);
+    let col3 = row.insertCell(2);
+    col1.innerHTML = item.brands;
+    col2.innerHTML = item.name;
+    col3.innerHTML = `<button class="more-info">info</button>`;
+
+    const infoBtn = document.querySelector('.more-info');
+
+    infoBtn.addEventListener('click', () => {
+      routie(`results/${item.barcode}`);
+    });
+  });
 };
 
 export default indexGet;

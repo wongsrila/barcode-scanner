@@ -9,10 +9,14 @@ const resultsGet = async (barcode) => {
 
   fetch(`https://world.openfoodfacts.org/api/v0/product/${barcode}.json`)
     .then((res) => res.json())
-    .then((res) => markupData(res));
+    .then((res) => markupData(res))
+    .catch((error) => {
+      console.log(error);
+    });
 
   const markupData = (res) => {
-    const resultMarkup = `
+    if (res.status === 1) {
+      const resultMarkup = `
     <main>
       <img src="${res.product.image_small_url}">
       <h1>${res.product.generic_name}</h1>
@@ -59,14 +63,69 @@ const resultsGet = async (barcode) => {
                 <img src="assets/images/barcode_icon.png" alt="" />
               </a>
             </li>
-            <li>Settings</li>
+            <li class="item-btn"><button class="save-btn">Save item</button></li>
           </ul>
         </nav>
       </div>
     </footer>
   `;
+      app.innerHTML = resultMarkup;
 
-    app.innerHTML = resultMarkup;
+      const saveBtn = document.querySelector('.save-btn');
+
+      const storageItems = JSON.parse(localStorage.getItem('items')) || [];
+
+      // Find if the array contains an object by comparing the property value
+      if (storageItems.some((item) => item.barcode === `${barcode}`)) {
+        saveBtn.setAttribute('disabled', '');
+      } else {
+        console.log('Object not found.');
+        saveBtn.addEventListener('click', () => {
+          saveItem(res);
+          console.log('clickevent');
+        });
+      }
+    } else {
+      const errormMarkup = `
+    <main>
+      <h1>Het product staat nog niet in ons systeem...</h1>
+      <p>Scan een ander product!</p>
+    </main>
+    <footer>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="./">Home</a></li>
+            <li>
+              <a href="#scanner">
+                <img src="assets/images/barcode_icon.png" alt="" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+      `;
+
+      app.innerHTML = errormMarkup;
+    }
+
+    const saveItem = (res) => {
+      const items = JSON.parse(localStorage.getItem('items')) || [];
+
+      items.push({
+        barcode: res.code,
+        imgUrl: res.product.image_small_url,
+        name: res.product.generic_name,
+        brands: res.product.brands,
+        quantity: res.product.quantity,
+        ingredients: res.product.ingredients_text,
+        categories: res.product.categories,
+      });
+
+      localStorage.setItem('items', JSON.stringify(items));
+      routie('');
+    };
   };
 };
 
