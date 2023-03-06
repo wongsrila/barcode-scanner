@@ -13,7 +13,7 @@ const scannerGet = () => {
   app.innerHTML = markup;
 
   const html5QrCode = new Html5Qrcode('reader');
-  const config = { fps: 20, qrbox: { width: 150, height: 150 } };
+  const config = { fps: 10, qrbox: { width: 150, height: 150 } };
 
   html5QrCode
     .start({ facingMode: 'environment' }, config, (decodedData) => {

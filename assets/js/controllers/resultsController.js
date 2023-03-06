@@ -11,19 +11,18 @@ const resultsGet = async () => {
 
   const data = localStorage.getItem(lastElement);
 
-  // const markup = `
-  //   <p>loading</p>
-  // `;
+  const markup = `
+    <h1>loading</h1>
+  `;
 
-  // app.innerHTML = markup;
+  app.innerHTML = markup;
 
   fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
     .then((res) => res.json())
     .then((res) => markupData(res));
 
   const markupData = (res) => {
-    console.log(res);
-    const markup = `
+    const resultMarkup = `
     <main>
       <img src="${res.product.image_small_url}">
       <h1>${res.product.generic_name}</h1>
@@ -77,7 +76,7 @@ const resultsGet = async () => {
     </footer>
   `;
 
-    app.innerHTML = markup;
+    app.innerHTML = resultMarkup;
   };
 };
 
