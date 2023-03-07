@@ -63,11 +63,6 @@ const resultsGet = async (barcode) => {
         <nav>
           <ul>
             <li><a href="./">Home</a></li>
-            <li>
-              <a href="#scanner">
-                <img src="assets/images/barcode_icon.png" alt="" />
-              </a>
-            </li>
             <li><button class="opslaan">Save item</button></li>
           </ul>
         </nav>

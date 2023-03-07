@@ -10,6 +10,7 @@ const indexGet = () => {
       energy: 0,
       eiwitten: 0,
       koolhydraten: 0,
+      fat: 0,
     };
   } else {
     totalNutri = NutriItems.reduce(function (previousValue, currentValue) {
