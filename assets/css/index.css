@@ -329,4 +329,11 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
+input:disabled,
+textarea:disabled,
+input:disabled::placeholder,
+textarea:disabled::placeholder {
+  -webkit-text-fill-color: #fff; /* 1. sets text fill to current `color` for safari */
+  opacity: 1; /* 2. correct opacity on iOS */
+}
 /* RESULT PAGE */
