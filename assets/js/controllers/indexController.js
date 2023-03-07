@@ -19,7 +19,6 @@ const indexGet = () => {
         eiwitten: +previousValue.eiwitten + +currentValue.eiwitten,
       };
     });
-    console.log(typeof totalNutri.energy);
   }
 
   const markup = `
