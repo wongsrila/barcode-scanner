@@ -4,7 +4,7 @@ import resultsGet from '../controllers/resultsController.js';
 import editGet from '../controllers/editController.js';
 
 routie({
-  '': async () => {
+  '': () => {
     indexGet();
   },
   scanner: () => {
