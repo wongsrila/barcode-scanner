@@ -119,6 +119,9 @@ const resultsGet = async (barcode) => {
         quantity: res.product.quantity,
         ingredients: res.product.ingredients_text,
         categories: res.product.categories,
+        energy: res.product.nutriments.energy_100g,
+        koolhydraten: res.product.nutriments.carbohydrates_100g,
+        eiwitten: res.product.nutriments.proteins_100g,
       });
 
       localStorage.setItem('items', JSON.stringify(items));

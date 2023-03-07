@@ -1,6 +1,16 @@
 const app = document.querySelector('.app');
 
 const indexGet = () => {
+  const NutriItems = JSON.parse(localStorage.getItem('items')) || [];
+
+  let totalNutri = NutriItems.reduce(function (previousValue, currentValue) {
+    return {
+      energy: previousValue.energy + currentValue.energy,
+      koolhydraten: previousValue.koolhydraten + currentValue.koolhydraten,
+      eiwitten: previousValue.eiwitten + currentValue.eiwitten,
+    };
+  });
+
   const markup = `
     <header>
       <div class="container">
@@ -9,8 +19,8 @@ const indexGet = () => {
           <ul>
             <li>
               <div class="nutrition-info__wrapper">
-                <p>Calories</p>
-                <p>1250 of 2000cal</p>
+                <p>Total Calories</p>
+                <p>${totalNutri.energy}kcal</p>
               </div>
               <div class="progress-line__wrapper">
                 <div class="inner-line"></div>
@@ -18,8 +28,8 @@ const indexGet = () => {
             </li>
             <li>
               <div class="nutrition-info__wrapper">
-                <p>Protein</p>
-                <p>50 of 140g</p>
+                <p>Total Protein</p>
+                <p>${totalNutri.eiwitten}g</p>
               </div>
               <div class="progress-line__wrapper">
                 <div class="inner-line"></div>
@@ -27,8 +37,8 @@ const indexGet = () => {
             </li>
             <li>
               <div class="nutrition-info__wrapper">
-                <p>carbs</p>
-                <p>40 of 200g</p>
+                <p>Total Carbs</p>
+                <p>${totalNutri.koolhydraten}g</p>
               </div>
               <div class="progress-line__wrapper">
                 <div class="inner-line"></div>
@@ -65,6 +75,14 @@ const indexGet = () => {
   const table = document.querySelector('table');
 
   const items = JSON.parse(localStorage.getItem('items')) || [];
+
+  let add = items.reduce(function (previousValue, currentValue) {
+    return {
+      energy: previousValue.energy + currentValue.energy,
+      koolhydraten: previousValue.koolhydraten + currentValue.koolhydraten,
+      eiwitten: previousValue.eiwitten + currentValue.eiwitten,
+    };
+  });
 
   items.forEach((item) => {
     let row = table.insertRow(0);
