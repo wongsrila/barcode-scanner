@@ -3,13 +3,25 @@ const app = document.querySelector('.app');
 const indexGet = () => {
   const NutriItems = JSON.parse(localStorage.getItem('items')) || [];
 
-  let totalNutri = NutriItems.reduce(function (previousValue, currentValue) {
-    return {
-      energy: previousValue.energy + currentValue.energy,
-      koolhydraten: previousValue.koolhydraten + currentValue.koolhydraten,
-      eiwitten: previousValue.eiwitten + currentValue.eiwitten,
+  let totalNutri = {};
+
+  if (NutriItems.length <= 0) {
+    totalNutri = {
+      energy: 0,
+      eiwitten: 0,
+      koolhydraten: 0,
     };
-  });
+  } else {
+    totalNutri = NutriItems.reduce(function (previousValue, currentValue) {
+      return {
+        energy: previousValue.energy + currentValue.energy,
+        koolhydraten: previousValue.koolhydraten + currentValue.koolhydraten,
+        eiwitten: previousValue.eiwitten + currentValue.eiwitten,
+      };
+    });
+  }
+
+  console.log(totalNutri);
 
   const markup = `
     <header>
@@ -75,14 +87,6 @@ const indexGet = () => {
   const table = document.querySelector('table');
 
   const items = JSON.parse(localStorage.getItem('items')) || [];
-
-  let add = items.reduce(function (previousValue, currentValue) {
-    return {
-      energy: previousValue.energy + currentValue.energy,
-      koolhydraten: previousValue.koolhydraten + currentValue.koolhydraten,
-      eiwitten: previousValue.eiwitten + currentValue.eiwitten,
-    };
-  });
 
   items.forEach((item) => {
     let row = table.insertRow(0);
