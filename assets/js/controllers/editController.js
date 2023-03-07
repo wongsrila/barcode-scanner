@@ -34,11 +34,11 @@ const editGet = (barcode) => {
           </tr>
           <tr>
             <td>Koolhydraten</td>
-            <td>${foundItem.koolhydraten}kcal</td>
+            <td>${foundItem.koolhydraten}g</td>
           </tr>
           <tr>
             <td>Eiwitten</td>
-            <td>${foundItem.eiwitten}kcal</td>
+            <td>${foundItem.eiwitten}g</td>
           </tr>
           <tr>
             <td>Zout</td>
