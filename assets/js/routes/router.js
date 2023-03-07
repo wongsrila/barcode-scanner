@@ -1,6 +1,7 @@
 import indexGet from '../controllers/indexController.js';
-import resultsGet from '../controllers/resultsController.js';
 import scannerGet from '../controllers/scannerController.js';
+import resultsGet from '../controllers/resultsController.js';
+import editGet from '../controllers/editController.js';
 
 routie({
   '': () => {
@@ -11,6 +12,9 @@ routie({
   },
   'results/:barcode': (barcode) => {
     resultsGet(barcode);
+  },
+  'edit/:barcode': (barcode) => {
+    editGet(barcode);
   },
 });
 

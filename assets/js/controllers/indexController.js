@@ -21,8 +21,6 @@ const indexGet = () => {
     });
   }
 
-  console.log(totalNutri);
-
   const markup = `
     <header>
       <div class="container">
@@ -32,7 +30,7 @@ const indexGet = () => {
             <li>
               <div class="nutrition-info__wrapper">
                 <p>Total Calories</p>
-                <p>${totalNutri.energy}kcal</p>
+                <p>${parseFloat(totalNutri.energy).toFixed(0)}kcal</p>
               </div>
               <div class="progress-line__wrapper">
                 <div class="inner-line"></div>
@@ -41,7 +39,7 @@ const indexGet = () => {
             <li>
               <div class="nutrition-info__wrapper">
                 <p>Total Protein</p>
-                <p>${totalNutri.eiwitten}g</p>
+                <p>${parseFloat(totalNutri.eiwitten).toFixed(0)}g</p>
               </div>
               <div class="progress-line__wrapper">
                 <div class="inner-line"></div>
@@ -50,7 +48,7 @@ const indexGet = () => {
             <li>
               <div class="nutrition-info__wrapper">
                 <p>Total Carbs</p>
-                <p>${totalNutri.koolhydraten}g</p>
+                <p>${parseFloat(totalNutri.koolhydraten).toFixed(0)}g</p>
               </div>
               <div class="progress-line__wrapper">
                 <div class="inner-line"></div>
@@ -100,7 +98,7 @@ const indexGet = () => {
     const infoBtn = document.querySelector('.more-info');
 
     infoBtn.addEventListener('click', () => {
-      routie(`results/${item.barcode}`);
+      routie(`edit/${item.barcode}`);
     });
   });
 };
