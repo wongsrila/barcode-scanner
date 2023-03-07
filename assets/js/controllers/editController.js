@@ -52,11 +52,6 @@ const editGet = (barcode) => {
         <nav>
           <ul>
             <li><a href="./">Home</a></li>
-            <li>
-              <a href="#scanner">
-                <img src="assets/images/barcode_icon.png" alt="" />
-              </a>
-            </li>
             <li class="item-btn"><button class="remove-btn">remove item</button></li>
           </ul>
         </nav>
