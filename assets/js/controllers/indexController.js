@@ -29,29 +29,29 @@ const indexGet = () => {
           <ul>
             <li>
               <div class="nutrition-info__wrapper">
-                <p>Total Calories</p>
-                <p>${parseFloat(totalNutri.energy).toFixed(0)}kcal</p>
+                <p>Calories</p>
+                <p>${parseFloat(totalNutri.energy).toFixed(0)}/2000kcal</p>
               </div>
               <div class="progress-line__wrapper">
-                <div class="inner-line"></div>
+                <div id="progress_1" class="inner-line"></div>
               </div>
             </li>
             <li>
               <div class="nutrition-info__wrapper">
-                <p>Total Protein</p>
-                <p>${parseFloat(totalNutri.eiwitten).toFixed(0)}g</p>
+                <p>Protein</p>
+                <p>${parseFloat(totalNutri.eiwitten).toFixed(0)}/160g</p>
               </div>
               <div class="progress-line__wrapper">
-                <div class="inner-line"></div>
+                <div id="progress_2" class="inner-line"></div>
               </div>
             </li>
             <li>
               <div class="nutrition-info__wrapper">
-                <p>Total Carbs</p>
-                <p>${parseFloat(totalNutri.koolhydraten).toFixed(0)}g</p>
+                <p>Carbs</p>
+                <p>${parseFloat(totalNutri.koolhydraten).toFixed(0)}/200g</p>
               </div>
               <div class="progress-line__wrapper">
-                <div class="inner-line"></div>
+                <div id="progress_3" class="inner-line"></div>
               </div>
             </li>
           </ul>
@@ -80,6 +80,17 @@ const indexGet = () => {
   `;
 
   app.innerHTML = markup;
+
+  // Bereken de progress bar
+  const energyResult = (100 / 2000) * parseFloat(totalNutri.energy).toFixed(0);
+  const eiwittenResult =
+    (100 / 160) * parseFloat(totalNutri.eiwitten).toFixed(0);
+  const koolhydratenResult =
+    (100 / 200) * parseFloat(totalNutri.koolhydraten).toFixed(0);
+
+  document.querySelector('#progress_1').style.width = `${energyResult}%`;
+  document.querySelector('#progress_2').style.width = `${eiwittenResult}%`;
+  document.querySelector('#progress_3').style.width = `${koolhydratenResult}%`;
 
   // add items to a table that are saved in the localstorage
   const table = document.querySelector('table');
