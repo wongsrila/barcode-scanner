@@ -138,7 +138,7 @@ const indexGet = () => {
   app.innerHTML = markup;
 
   // Bereken de progress bar
-  const energyResult = (100 / 2000) * parseFloat(totalNutri.energy).toFixed(1);
+  const energyResult = (100 / 2650) * parseFloat(totalNutri.energy).toFixed(1);
   const eiwittenResult =
     (100 / 160) * parseFloat(totalNutri.eiwitten).toFixed(1);
   const koolhydratenResult =

@@ -16,13 +16,15 @@ const resultsGet = async (barcode) => {
 
   const markupData = (res) => {
     if (res.status === 1) {
+      console.log(res.product);
+
       // prettier-ignore
       const resultMarkup = `
     <main>
       <img src="${res.product.image_small_url}">
       <h1>${res.product.product_name}</h1>
-      <b>${res.product.brands}</b></br></br>
-      <b>${res.product.quantity}</b></br></br>
+      <p>${res.product.brands}</p></br></br>
+      <p>${res.product.quantity}</p></br></br>
       <p>${res.product.ingredients_text}</p></br></br>
       <p>${res.product.categories}</p></br></br>
       <input id="input" type="number" />
@@ -54,6 +56,10 @@ const resultsGet = async (barcode) => {
           <tr>
             <td>Zout</td>
             <td>${res.product.nutriments.salt_100g}g</td>
+          </tr>
+          <tr>
+            <td>Suiker</td>
+            <td>${res.product.nutriments.sugars_100g}g</td>
           </tr>
         </tbody>
       </table>
@@ -123,6 +129,10 @@ const resultsGet = async (barcode) => {
         parseFloat(res.product.nutriments.salt_100g / 100) * input.value
       ).toFixed(1);
 
+      const addedSugars = (
+        parseFloat(res.product.nutriments.sugars_100g / 100) * input.value
+      ).toFixed(1);
+
       // prettier-ignore
       items.push({
         barcode: res.code,
@@ -131,12 +141,14 @@ const resultsGet = async (barcode) => {
         brands: res.product.brands,
         quantity: res.product.quantity,
         ingredients: res.product.ingredients_text,
-        categories: res.product.categorie,
+        categories: res.product.categories,
         energy: addedEnergy,
         koolhydraten: addedCarbs,
         eiwitten: addedProtein,
         fat: addedFats,
         salt: addedSalts,
+        sugar: addedSugars,
+        input: input.value
       });
 
       localStorage.setItem('items', JSON.stringify(items));
