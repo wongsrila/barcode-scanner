@@ -4,7 +4,7 @@ import resultsGet from '../controllers/resultsController.js';
 import editGet from '../controllers/editController.js';
 
 routie({
-  '': () => {
+  '': async () => {
     indexGet();
   },
   scanner: () => {
@@ -13,8 +13,8 @@ routie({
   'results/:barcode': (barcode) => {
     resultsGet(barcode);
   },
-  'edit/:barcode': (barcode) => {
-    editGet(barcode);
+  'edit/:id': (id) => {
+    editGet(id);
   },
 });
 

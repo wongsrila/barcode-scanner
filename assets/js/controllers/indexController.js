@@ -1,11 +1,10 @@
 const app = document.querySelector('.app');
+const items = JSON.parse(localStorage.getItem('items')) || [];
+let totalNutri = {};
 
 const indexGet = () => {
-  const NutriItems = JSON.parse(localStorage.getItem('items')) || [];
-
-  let totalNutri = {};
-
-  if (NutriItems.length <= 0) {
+  if (items.length <= 0) {
+    // Als er geen gegevens zijn, zet het dan op 0.
     totalNutri = {
       energy: 0,
       eiwitten: 0,
@@ -13,7 +12,8 @@ const indexGet = () => {
       fat: 0,
     };
   } else {
-    totalNutri = NutriItems.reduce(function (previousValue, currentValue) {
+    // Als er wel gegevens zijn, laat die dan zien
+    totalNutri = items.reduce(function (previousValue, currentValue) {
       return {
         energy: +previousValue.energy + +currentValue.energy,
         koolhydraten: +previousValue.koolhydraten + +currentValue.koolhydraten,
@@ -144,8 +144,8 @@ const indexGet = () => {
   const eiwittenResult =
     (100 / 160) * parseFloat(totalNutri.eiwitten).toFixed(1);
   const koolhydratenResult =
-    (100 / 200) * parseFloat(totalNutri.koolhydraten).toFixed(1);
-  const fatResult = (100 / 200) * parseFloat(totalNutri.fat).toFixed(1);
+    (100 / 160) * parseFloat(totalNutri.koolhydraten).toFixed(1);
+  const fatResult = (100 / 160) * parseFloat(totalNutri.fat).toFixed(1);
 
   document.querySelector('.progress-bar').style.width = `${energyResult}%`;
   document.querySelector('#nutri-carbs').style.width = `${koolhydratenResult}%`;
@@ -153,8 +153,6 @@ const indexGet = () => {
   document.querySelector('#nutri-fat').style.width = `${fatResult}%`;
 
   // add items to a table that are saved in the localstorage
-  const items = JSON.parse(localStorage.getItem('items')) || [];
-
   const ul = document.querySelector('ul');
 
   items.forEach((item) => {
@@ -186,9 +184,8 @@ const indexGet = () => {
       </div>
     `;
 
-    li.addEventListener('click', function () {
-      // console.log(item.barcode);
-      routie(`edit/${item.barcode}`);
+    li.addEventListener('click', () => {
+      routie(`edit/${item.id}`);
     });
 
     ul.appendChild(li);

@@ -164,6 +164,7 @@ const resultsGet = async (barcode) => {
 
       // prettier-ignore
       items.push({
+        id: new Date().valueOf(),
         barcode: res.code,
         imgUrl: res.product.image_small_url,
         name: res.product.product_name,
@@ -177,7 +178,7 @@ const resultsGet = async (barcode) => {
         fat: addedFats,
         salt: addedSalts,
         sugar: addedSugars,
-        input: input.value
+        input: input.value,
       });
 
       localStorage.setItem('items', JSON.stringify(items));
