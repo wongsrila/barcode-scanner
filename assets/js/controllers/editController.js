@@ -30,7 +30,7 @@ const editGet = (barcode) => {
           </tr>
           <tr>
             <td>Vet</td>
-            <td>kcal</td>
+            <td>${foundItem.fat}g</td>
           </tr>
           <tr>
             <td>Koolhydraten</td>
@@ -42,7 +42,7 @@ const editGet = (barcode) => {
           </tr>
           <tr>
             <td>Zout</td>
-            <td>kcal</td>
+            <td>${foundItem.salt}g</td>
           </tr>
         </tbody>
       </table>

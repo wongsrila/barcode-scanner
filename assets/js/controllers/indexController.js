@@ -14,11 +14,12 @@ const indexGet = () => {
   } else {
     totalNutri = NutriItems.reduce(function (previousValue, currentValue) {
       return {
-        energy: previousValue.energy + currentValue.energy,
-        koolhydraten: previousValue.koolhydraten + currentValue.koolhydraten,
-        eiwitten: previousValue.eiwitten + currentValue.eiwitten,
+        energy: +previousValue.energy + +currentValue.energy,
+        koolhydraten: +previousValue.koolhydraten + +currentValue.koolhydraten,
+        eiwitten: +previousValue.eiwitten + +currentValue.eiwitten,
       };
     });
+    console.log(typeof totalNutri.energy);
   }
 
   const markup = `

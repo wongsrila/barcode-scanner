@@ -16,6 +16,7 @@ const resultsGet = async (barcode) => {
 
   const markupData = (res) => {
     if (res.status === 1) {
+      // prettier-ignore
       const resultMarkup = `
     <main>
       <img src="${res.product.image_small_url}">
@@ -24,6 +25,8 @@ const resultsGet = async (barcode) => {
       <b>${res.product.quantity}</b></br></br>
       <p>${res.product.ingredients_text}</p></br></br>
       <p>${res.product.categories}</p></br></br>
+      <input id="input" type="number" />
+      </br></br>
       <table>
         <tbody>
           <tr>
@@ -32,23 +35,25 @@ const resultsGet = async (barcode) => {
           </tr>
           <tr>
             <td>Energy</td>
-            <td>${res.product.nutriments.energy_100g}kcal</td>
+            <td>${parseFloat(res.product.nutriments.energy_100g / 4.18).toFixed(
+              1,
+            )}kcal</td>
           </tr>
           <tr>
             <td>Vet</td>
-            <td>${res.product.nutriments.fat_100g}kcal</td>
+            <td>${res.product.nutriments.fat_100g}g</td>
           </tr>
           <tr>
             <td>Koolhydraten</td>
-            <td>${res.product.nutriments.carbohydrates_100g}kcal</td>
+            <td>${res.product.nutriments.carbohydrates_100g}g</td>
           </tr>
           <tr>
             <td>Eiwitten</td>
-            <td>${res.product.nutriments.proteins_100g}kcal</td>
+            <td>${res.product.nutriments.proteins_100g}g</td>
           </tr>
           <tr>
             <td>Zout</td>
-            <td>${res.product.nutriments.salt_100g}kcal</td>
+            <td>${res.product.nutriments.salt_100g}g</td>
           </tr>
         </tbody>
       </table>
@@ -63,7 +68,7 @@ const resultsGet = async (barcode) => {
                 <img src="assets/images/barcode_icon.png" alt="" />
               </a>
             </li>
-            <li class="item-btn"><button class="save-btn">Save item</button></li>
+            <li><button class="opslaan">Save item</button></li>
           </ul>
         </nav>
       </div>
@@ -71,18 +76,13 @@ const resultsGet = async (barcode) => {
   `;
       app.innerHTML = resultMarkup;
 
-      const saveBtn = document.querySelector('.save-btn');
+      // hoeveelheid selector
+      const input = document.getElementById('input');
+      const submitBtn = document.querySelector('.opslaan');
 
-      const storageItems = JSON.parse(localStorage.getItem('items')) || [];
-
-      // Find if the array contains an object by comparing the property value
-      if (storageItems.some((item) => item.barcode === `${barcode}`)) {
-        saveBtn.setAttribute('disabled', '');
-      } else {
-        saveBtn.addEventListener('click', () => {
-          saveItem(res);
-        });
-      }
+      submitBtn.addEventListener('click', () => {
+        saveItem(res, input);
+      });
     } else {
       const errormMarkup = `
     <main>
@@ -108,9 +108,32 @@ const resultsGet = async (barcode) => {
       app.innerHTML = errormMarkup;
     }
 
-    const saveItem = (res) => {
+    const saveItem = (res, input) => {
       const items = JSON.parse(localStorage.getItem('items')) || [];
 
+      const addedEnergy = (
+        parseFloat(res.product.nutriments.energy_100g / 4.18 / 100) *
+        input.value
+      ).toFixed(1);
+
+      const addedProtein = (
+        parseFloat(res.product.nutriments.proteins_100g / 100) * input.value
+      ).toFixed(1);
+
+      const addedCarbs = (
+        parseFloat(res.product.nutriments.carbohydrates_100g / 100) *
+        input.value
+      ).toFixed(1);
+
+      const addedFats = (
+        parseFloat(res.product.nutriments.fat_100g / 100) * input.value
+      ).toFixed(1);
+
+      const addedSalts = (
+        parseFloat(res.product.nutriments.salt_100g / 100) * input.value
+      ).toFixed(1);
+
+      // prettier-ignore
       items.push({
         barcode: res.code,
         imgUrl: res.product.image_small_url,
@@ -118,10 +141,12 @@ const resultsGet = async (barcode) => {
         brands: res.product.brands,
         quantity: res.product.quantity,
         ingredients: res.product.ingredients_text,
-        categories: res.product.categories,
-        energy: res.product.nutriments.energy_100g,
-        koolhydraten: res.product.nutriments.carbohydrates_100g,
-        eiwitten: res.product.nutriments.proteins_100g,
+        categories: res.product.categorie,
+        energy: addedEnergy,
+        koolhydraten: addedCarbs,
+        eiwitten: addedProtein,
+        fat: addedFats,
+        salt: addedSalts,
       });
 
       localStorage.setItem('items', JSON.stringify(items));
