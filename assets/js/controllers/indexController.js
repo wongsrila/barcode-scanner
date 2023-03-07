@@ -155,7 +155,6 @@ const indexGet = () => {
 
   items.forEach((item) => {
     let li = document.createElement('li');
-    // li.setAttribute('class', 'more-info');
     li.innerHTML = `
       <div class="item-img__wrapper"><img src="${item.imgUrl}" /></div>
       <div class="item-info__wrapper">
@@ -184,12 +183,13 @@ const indexGet = () => {
       </div>
     `;
 
-    ul.appendChild(li);
+    ul.append(li);
 
     const infoBtn = document.querySelector('.more-info');
 
     infoBtn.addEventListener('click', () => {
-      routie(`edit/90162602`);
+      console.log(item.barcode);
+      // routie(`edit/90162602`);
     });
   });
 };

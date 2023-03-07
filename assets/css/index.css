@@ -42,7 +42,7 @@ body {
 /* ADD BTN */
 
 header {
-  padding-top: 5rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: end;
