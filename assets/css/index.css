@@ -19,6 +19,9 @@ body {
   background-color: var(--color-black);
   font-family: 'Inter', sans-serif;
   color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -239,3 +242,91 @@ footer a svg {
   width: 1.5rem;
 }
 /* FOOTER */
+
+/* RESULT PAGE */
+.result__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.result__header img {
+  height: 7rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.result__header h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.result__header label {
+  font-size: 0.8rem;
+  color: var(--color-grey);
+  text-align: center;
+}
+
+.result__core-nutri__wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.result__core-nutri p:nth-of-type(1) {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.input_value {
+  padding: 1rem;
+  background-color: var(--color-grey);
+  color: var(--color-white);
+  border: none;
+  border-radius: 0.8rem;
+  margin-top: 2rem;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.ingredients {
+  margin-top: 2rem;
+}
+
+.save-item {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 1rem;
+  width: 15rem;
+  border-radius: 5rem;
+  position: fixed;
+  bottom: 9rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* RESULT PAGE */

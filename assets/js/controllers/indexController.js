@@ -52,7 +52,9 @@ const indexGet = () => {
             <div class="progress-bar"></div>
           </div>
           <div class="progress-info__wrapper">
-            <p>${parseFloat(totalNutri.energy).toFixed(0)} calories eaten</p>
+            <p class="is--text-green">${parseFloat(totalNutri.energy).toFixed(
+              0,
+            )} calories eaten</p>
             <p>Goal: <span>2.650</span></p>
           </div>
         </div>
