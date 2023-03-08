@@ -1,6 +1,6 @@
-const app = document.querySelector('.app');
-
 const scannerGet = () => {
+  const app = document.querySelector('.app');
+
   const markup = `
     <main>
       <div id="reader"></div>

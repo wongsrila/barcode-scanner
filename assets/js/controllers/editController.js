@@ -1,7 +1,7 @@
-const app = document.querySelector('.app');
-let foundItem;
-
 const editGet = (id) => {
+  const app = document.querySelector('.app');
+  let foundItem;
+
   // Haalt alle items uit de localStorage
   const storageItems = JSON.parse(localStorage.getItem('items')) || [];
 

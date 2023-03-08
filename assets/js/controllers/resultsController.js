@@ -1,6 +1,6 @@
-const app = document.querySelector('.app');
-
 const resultsGet = async (barcode) => {
+  const app = document.querySelector('.app');
+
   const markup = `
     <h1>loading</h1>
   `;
