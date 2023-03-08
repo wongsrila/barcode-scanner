@@ -155,8 +155,6 @@ const indexGet = () => {
   // add items to a table that are saved in the localstorage
   const ul = document.querySelector('ul');
 
-  console.log(items.length);
-
   if (items.length <= 0) {
     ul.innerHTML = `
       <li class="is--empty">
