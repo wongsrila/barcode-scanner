@@ -1,7 +1,15 @@
 const indexGet = () => {
   const app = document.querySelector('.app');
   const items = JSON.parse(localStorage.getItem('items')) || [];
+  const user = JSON.parse(localStorage.getItem('user')) || [];
   let totalNutri = {};
+
+  // console.log(user.length);
+  if (user.length <= 0) {
+    routie('create-account');
+  }
+
+  console.log(user);
 
   if (items.length <= 0) {
     // Als er geen gegevens zijn, zet het dan op 0.
@@ -43,10 +51,10 @@ const indexGet = () => {
         </svg>
       </a>
       <header>
-        <h1>Today</h1>
+        <h1>Hello ${user.name}</h1>
         <div class="progress-stats__wrapper">
           <p>You can still eat <span>${
-            2650 - parseFloat(totalNutri.energy).toFixed(0)
+            user.calories - parseFloat(totalNutri.energy).toFixed(0)
           }</span> calories</p>
           <div class="progress-bar__wrapper">
             <div class="progress-bar"></div>
@@ -55,7 +63,7 @@ const indexGet = () => {
             <p class="is--text-green">${parseFloat(totalNutri.energy).toFixed(
               0,
             )} calories eaten</p>
-            <p>Goal: <span>2.650</span></p>
+            <p>Goal: <span>${user.calories}</span></p>
           </div>
         </div>
         <div class="core-nutri__wrapper">
@@ -63,7 +71,7 @@ const indexGet = () => {
             <div class="progress-info__wrapper">
               <p class="is--text-pink">Carbs</p>
               <p class="is--text-pink">${
-                160 - parseFloat(totalNutri.koolhydraten).toFixed(1)
+                user.carbs - parseFloat(totalNutri.koolhydraten).toFixed(1)
               }g left</p>
             </div>
             <div class="progress-bar__wrapper">
@@ -74,7 +82,7 @@ const indexGet = () => {
             <div class="progress-info__wrapper">
               <p class="is--text-blue">Protein</p>
               <p class="is--text-blue">${
-                160 - parseFloat(totalNutri.eiwitten).toFixed(1)
+                user.protein - parseFloat(totalNutri.eiwitten).toFixed(1)
               }g left</p>
             </div>
             <div class="progress-bar__wrapper">
@@ -85,7 +93,7 @@ const indexGet = () => {
             <div class="progress-info__wrapper">
               <p class="is--text-orange">fat</p>
               <p class="is--text-orange">${
-                160 - parseFloat(totalNutri.fat).toFixed(1)
+                user.fats - parseFloat(totalNutri.fat).toFixed(1)
               }g left</p>
             </div>
             <div class="progress-bar__wrapper">

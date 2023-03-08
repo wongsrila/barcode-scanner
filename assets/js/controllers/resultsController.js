@@ -207,7 +207,7 @@ const resultsGet = async (barcode) => {
       });
 
       localStorage.setItem('items', JSON.stringify(items));
-      routie('/');
+      routie('');
     };
   };
 };
