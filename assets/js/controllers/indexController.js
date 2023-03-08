@@ -155,6 +155,24 @@ const indexGet = () => {
   // add items to a table that are saved in the localstorage
   const ul = document.querySelector('ul');
 
+  console.log(items.length);
+
+  if (items.length <= 0) {
+    ul.innerHTML = `
+      <li class="is--empty">
+        <div class="close-btn">
+          <svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 22L16 16M16 16L10 10M16 16L22 10M16 16L10 22" stroke="#7b7b7b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="16" r="15" stroke="#7b7b7b" stroke-width="2"/>
+          </svg>
+        </div>
+        <h2>Tip of the day</h2>
+        <h3>Voeg een product toe</h3>
+        <p>Zo te zien heb je nog niks toegevoegd. Voeg een product toe om meer informatie te zien!</p>
+      </li>
+    `;
+  }
+
   items.forEach((item) => {
     let li = document.createElement('li');
     li.innerHTML += `
