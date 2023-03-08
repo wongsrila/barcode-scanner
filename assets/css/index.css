@@ -327,6 +327,11 @@ footer a svg {
   border: none;
   border-radius: 0.8rem;
   margin-top: 2rem;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
 }
 
 textarea:focus,
@@ -372,5 +377,6 @@ input:disabled::placeholder,
 textarea:disabled::placeholder {
   -webkit-text-fill-color: #fff; /* 1. sets text fill to current `color` for safari */
   opacity: 1; /* 2. correct opacity on iOS */
+  cursor: not-allowed;
 }
 /* RESULT PAGE */
