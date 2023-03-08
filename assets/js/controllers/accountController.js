@@ -67,6 +67,7 @@ const accountGet = () => {
     };
 
     localStorage.setItem('user', JSON.stringify(updatedUser));
+    alert('Account updated');
     routie('#account');
   };
 };
