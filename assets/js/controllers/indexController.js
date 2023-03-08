@@ -146,12 +146,13 @@ const indexGet = () => {
   app.innerHTML = markup;
 
   // Bereken de progress bar
-  const energyResult = (100 / 2650) * parseFloat(totalNutri.energy).toFixed(1);
+  const energyResult =
+    (100 / user.calories) * parseFloat(totalNutri.energy).toFixed(1);
   const eiwittenResult =
-    (100 / 160) * parseFloat(totalNutri.eiwitten).toFixed(1);
+    (100 / user.protein) * parseFloat(totalNutri.eiwitten).toFixed(1);
   const koolhydratenResult =
-    (100 / 160) * parseFloat(totalNutri.koolhydraten).toFixed(1);
-  const fatResult = (100 / 160) * parseFloat(totalNutri.fat).toFixed(1);
+    (100 / user.carbs) * parseFloat(totalNutri.koolhydraten).toFixed(1);
+  const fatResult = (100 / user.fats) * parseFloat(totalNutri.fat).toFixed(1);
 
   document.querySelector('.progress-bar').style.width = `${energyResult}%`;
   document.querySelector('#nutri-carbs').style.width = `${koolhydratenResult}%`;
