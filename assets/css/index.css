@@ -322,7 +322,7 @@ footer a svg {
 
 .input_value {
   padding: 1rem;
-  background-color: var(--color-grey);
+  background-color: var(--color-dark-grey);
   color: var(--color-white);
   border: none;
   border-radius: 0.8rem;

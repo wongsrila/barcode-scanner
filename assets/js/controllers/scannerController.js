@@ -22,7 +22,7 @@ const scannerGet = () => {
         </svg>
         <p class="is--text-grey">Diary</p>
       </a>
-      <a href="#">
+      <a href="#account">
         <svg
           viewBox="0 0 20 20"
           fill="none"

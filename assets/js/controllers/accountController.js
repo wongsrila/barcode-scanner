@@ -1,6 +1,7 @@
 const accountGet = () => {
   const app = document.querySelector('.app');
   const user = JSON.parse(localStorage.getItem('user')) || [];
+
   app.innerHTML = `
     <div class="container">
       <input value="${user.name}" class="input_value " type="text" id="user-name-input" placeholder="Your name"/>

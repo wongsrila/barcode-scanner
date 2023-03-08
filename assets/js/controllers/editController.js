@@ -67,7 +67,7 @@ const editGet = (id) => {
           </svg>
           <p>Diary</p>
         </a>
-        <a href="#">
+        <a href="#account">
           <svg
             viewBox="0 0 20 20"
             fill="none"
