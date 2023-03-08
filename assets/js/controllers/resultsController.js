@@ -19,6 +19,23 @@ const resultsGet = async (barcode) => {
       // prettier-ignore
       const resultMarkup = `
         <div class="container">
+          <a href="./#scanner" class="barcode__btn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 18.4852V9.99995M10 9.99995V1.51465M10 9.99995H18.4853M10 9.99995H1.51471"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
           <div class="result__header">
             <img src="${res.product.image_small_url}" alt="" />
             <h1>${res.product.product_name} - ${res.product.quantity}</h1>
@@ -115,6 +132,23 @@ const resultsGet = async (barcode) => {
       });
     } else {
       const errormMarkup = `
+        <a href="./#scanner" class="barcode__btn">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 18.4852V9.99995M10 9.99995V1.51465M10 9.99995H18.4853M10 9.99995H1.51471"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
         <main>
           <h1>Het product staat nog niet in ons systeem...</h1>
           <p>Scan een ander product!</p>
