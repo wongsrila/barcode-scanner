@@ -20,11 +20,6 @@ const createAccountGet = () => {
   const createBtn = document.querySelector('#create-account-btn');
 
   createBtn.addEventListener('click', () => {
-    // console.log(nameInput.value);
-    // console.log(caloriesInput.value);
-    // console.log(carbsInput.value);
-    // console.log(proteinInput.value);
-    // console.log(fatsInput.value);
     createAccount();
   });
 

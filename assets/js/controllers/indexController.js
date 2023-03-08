@@ -9,8 +9,6 @@ const indexGet = () => {
     routie('create-account');
   }
 
-  console.log(user);
-
   if (items.length <= 0) {
     // Als er geen gegevens zijn, zet het dan op 0.
     totalNutri = {
@@ -125,7 +123,7 @@ const indexGet = () => {
           </svg>
           <p>Diary</p>
         </a>
-        <a href="#">
+        <a href="#account">
           <svg
             viewBox="0 0 20 20"
             fill="none"

@@ -3,6 +3,7 @@ import scannerGet from '../controllers/scannerController.js';
 import resultsGet from '../controllers/resultsController.js';
 import editGet from '../controllers/editController.js';
 import createAccountGet from '../controllers/createAccountController.js';
+import accountGet from '../controllers/accountController.js';
 
 routie({
   '': () => {
@@ -19,6 +20,9 @@ routie({
   },
   'create-account': () => {
     createAccountGet();
+  },
+  account: () => {
+    accountGet();
   },
 });
 
