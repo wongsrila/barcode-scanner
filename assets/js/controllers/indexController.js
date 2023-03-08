@@ -1,8 +1,8 @@
-const app = document.querySelector('.app');
-const items = JSON.parse(localStorage.getItem('items')) || [];
-let totalNutri = {};
-
 const indexGet = () => {
+  const app = document.querySelector('.app');
+  const items = JSON.parse(localStorage.getItem('items')) || [];
+  let totalNutri = {};
+
   if (items.length <= 0) {
     // Als er geen gegevens zijn, zet het dan op 0.
     totalNutri = {

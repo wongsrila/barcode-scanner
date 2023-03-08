@@ -59,7 +59,7 @@ const resultsGet = async (barcode) => {
             <p class="ingredients">${res.product.ingredients_text}</p>
           </div>
 
-          <div class="save-item" href="">Add to diary</div>
+          <a class="save-item">Add to diary</a>
 
           <footer>
             <a href="#">
@@ -207,7 +207,7 @@ const resultsGet = async (barcode) => {
       });
 
       localStorage.setItem('items', JSON.stringify(items));
-      routie('');
+      routie('/');
     };
   };
 };
