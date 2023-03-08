@@ -121,6 +121,9 @@ header .core-progress__wrapper {
 .is--orange {
   background-color: var(--color-orange) !important;
 }
+.is--green {
+  background-color: var(--color-green) !important;
+}
 
 .is--text-pink {
   color: var(--color-pink) !important;

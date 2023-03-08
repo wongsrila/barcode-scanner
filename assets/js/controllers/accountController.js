@@ -8,7 +8,8 @@ const accountGet = () => {
       <input value="${user.carbs}" class="input_value is--text-pink" inputmode="numeric" pattern="[0-9]*" type="text" id="user-carbs-input" placeholder="Carbs goal"/>
       <input value="${user.protein}" class="input_value is--text-blue" inputmode="numeric" pattern="[0-9]*" type="text" id="user-protein-input" placeholder="Protein goal"/>
       <input value="${user.fats}" class="input_value is--text-orange" inputmode="numeric" pattern="[0-9]*" type="text" id="user-fats-input" placeholder="Fat goal"/>
-      <button  class="input_value" id="update-account-btn">Update account</button>
+      <button  class="input_value is--green" id="update-account-btn">Update account</button>
+      <button  class="input_value is--pink" id="delete-account-btn">delete account</button>
       <footer>
         <a href="./">
           <svg
@@ -52,10 +53,20 @@ const accountGet = () => {
   const proteinInput = document.querySelector('#user-protein-input');
   const fatsInput = document.querySelector('#user-fats-input');
   const updateBtn = document.querySelector('#update-account-btn');
+  const deleteBtn = document.querySelector('#delete-account-btn');
+
+  deleteBtn.addEventListener('click', () => {
+    deleteAccount();
+  });
 
   updateBtn.addEventListener('click', () => {
     updateAccount();
   });
+
+  const deleteAccount = () => {
+    localStorage.removeItem('user');
+    routie('');
+  };
 
   const updateAccount = () => {
     const updatedUser = {
