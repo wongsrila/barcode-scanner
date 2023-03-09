@@ -1,4 +1,4 @@
-import footerView from './partials/footer_view.js';
+import { footerOneView, footerTwoView } from './partials/footer_view.js';
 
 const renderView = (user) => {
   return /*html*/ `
@@ -52,7 +52,7 @@ const renderView = (user) => {
       <button class="input_value is--pink" id="delete-account-btn">
         delete account
       </button>
-      ${footerView()}
+      ${footerOneView()}
     </div>
   `;
 };
