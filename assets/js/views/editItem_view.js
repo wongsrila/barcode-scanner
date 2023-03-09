@@ -1,4 +1,4 @@
-import footerView from './partials/footer_view.js';
+import { footerTwoView } from './partials/footer_view.js';
 
 const renderView = (foundItem) => {
   return /*html*/ `
@@ -39,7 +39,7 @@ const renderView = (foundItem) => {
 
       <a class="save-item remove-btn" href="">Remove from diary</a>
 
-      ${footerView()}
+      ${footerTwoView()}
       <!-- HOME PAGINA -->
     </div>
   `;

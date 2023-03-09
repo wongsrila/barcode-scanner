@@ -1,4 +1,4 @@
-import footerView from './partials/footer_view.js';
+import { footerOneView, footerTwoView } from './partials/footer_view.js';
 
 const render_MainView = (user, totalNutri) => {
   return /*html*/ `
@@ -78,7 +78,7 @@ const render_MainView = (user, totalNutri) => {
         </ul>
       </main>
 
-      ${footerView()}
+      ${footerOneView()}
     </div>
   `;
 };
