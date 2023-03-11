@@ -31,7 +31,7 @@ const resultView = (res) => {
         <div class="result__core-nutri__wrapper">
           <div class="result__core-nutri">
             <p class="is--text-green">${parseFloat(
-              res.product.nutriments.energy_100g / 4.18,
+              res.product.nutriments['energy-kcal_100g'] / 4.18,
             ).toFixed(1)}</p>
             <p>Calories</p>
           </div>
